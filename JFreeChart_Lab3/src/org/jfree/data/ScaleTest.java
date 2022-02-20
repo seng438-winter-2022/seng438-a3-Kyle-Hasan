@@ -22,8 +22,7 @@ public class ScaleTest {
         positiveRange = new Range(8.01,24.11);
         zeroRange = new Range(0,0);
         mixedRange = new Range(-1,2);
-       
-		
+      
     }
     
     @Test(expected = InvalidParameterException.class)
