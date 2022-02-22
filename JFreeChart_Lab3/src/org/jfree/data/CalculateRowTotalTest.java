@@ -13,11 +13,20 @@ public class CalculateRowTotalTest {
 
     Mockery mockContext1;
     Mockery mockContext2;
+    
+    int[] valid0 = null;
+    int[] valid1 = new int[1];
+    int[] valid2 = new int[2];
+    
     Values2D values1;
     Values2D values2;
 
     @Before
     public void setUp() throws Exception {
+    	
+    	valid1[0] = 0;
+    	valid2[0] = 1;
+    	valid2[1] = 2;	// a column that's out of bounds
 
         // Mockery of 1 x 1 table
         mockContext1 = new Mockery();
@@ -30,8 +39,8 @@ public class CalculateRowTotalTest {
                 will(returnValue(1));
 
                 // Mock table with values
-                // 3.3  1.1
-                // 3.3  1.1
+                // 3.3  null
+                // null	null
                 // Any values not at 0,0 should not be reached
                 one(values1).getValue(0,0);
                 will(returnValue(3.3));
@@ -55,9 +64,9 @@ public class CalculateRowTotalTest {
                 will(returnValue(2));
 
                 // Mocks table with values
-                // 1.1  1.1  1.1
-                // 2.2  2.2  2.2
-                // 3.3  3.3  3.3
+                // 1.1  1.1  null
+                // 2.2  2.2  null
+                // null null null
                 // Last row and column are not valid and out of range
                 one(values2).getValue(0,0);
                 will(returnValue(1.1));
@@ -68,15 +77,15 @@ public class CalculateRowTotalTest {
                 one(values2).getValue(1,1);
                 will(returnValue(2.2));
                 one(values2).getValue(0,2);
-                will(returnValue(1.1));
+                will(returnValue(null));
                 one(values2).getValue(1,2);
-                will(returnValue(2.2));
+                will(returnValue(null));
                 one(values2).getValue(2,0);
-                will(returnValue(3.3));
+                will(returnValue(null));
                 one(values2).getValue(2,1);
-                will(returnValue(3.3));
+                will(returnValue(null));
                 one(values2).getValue(2,2);
-                will(returnValue(3.3));
+                will(returnValue(null));
             }
         });
     }
@@ -104,6 +113,11 @@ public class CalculateRowTotalTest {
     @Test (expected = InvalidParameterException.class)
     public void testCalculateRowTotalInvalidParemeter() {
         DataUtilities.calculateRowTotal(null, 0);
+    }
+    
+    @Test
+    public void testCalculateRowTotalValidSingleton() {
+    	
     }
 
     @After

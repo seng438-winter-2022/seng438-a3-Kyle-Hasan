@@ -30,8 +30,8 @@ public class CalculateColumnTotalTest {
                 will(returnValue(1));
 
                 // Mock table with values
-                // 3.3  1.1
-                // 3.3  1.1
+                // 3.3  null
+                // null	null
                 // Any values not at 0,0 should not be reached
                 one(values1).getValue(0,0);
                 will(returnValue(3.3));
@@ -55,9 +55,9 @@ public class CalculateColumnTotalTest {
                 will(returnValue(2));
 
                 // Mocks table with values
-                // 1.1  1.1  1.1
-                // 2.2  2.2  2.2
-                // 3.3  3.3  3.3
+                // 1.1  1.1  null
+                // 2.2  2.2  null
+                // null null null
                 // Last row and column are not valid and out of range
                 one(values2).getValue(0,0);
                 will(returnValue(1.1));
@@ -68,15 +68,15 @@ public class CalculateColumnTotalTest {
                 one(values2).getValue(1,1);
                 will(returnValue(2.2));
                 one(values2).getValue(0,2);
-                will(returnValue(1.1));
+                will(returnValue(null));
                 one(values2).getValue(1,2);
-                will(returnValue(2.2));
+                will(returnValue(null));
                 one(values2).getValue(2,0);
-                will(returnValue(3.3));
+                will(returnValue(null));
                 one(values2).getValue(2,1);
-                will(returnValue(3.3));
+                will(returnValue(null));
                 one(values2).getValue(2,2);
-                will(returnValue(3.3));
+                will(returnValue(null));
             }
         });
     }
