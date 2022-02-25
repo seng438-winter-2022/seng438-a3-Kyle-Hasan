@@ -17,6 +17,7 @@ public class CalculateRowTotalTest {
     int[] valid0 = null;
     int[] valid1 = new int[1];
     int[] valid2 = new int[2];
+    int[] valid3 = new int[2];
     
     Values2D values1;
     Values2D values2;
@@ -27,6 +28,8 @@ public class CalculateRowTotalTest {
     	valid1[0] = 0;
     	valid2[0] = 1;
     	valid2[1] = 2;	// a column that's out of bounds
+    	valid3[0] = 3;
+    	valid3[1] = 1;
 
         // Mockery of 1 x 1 table
         mockContext1 = new Mockery();
@@ -117,8 +120,24 @@ public class CalculateRowTotalTest {
     
     @Test
     public void testCalculateRowTotalValidSingleton() {
-    	
+    	assertEquals("The sum of the valid singleton values row", 3.3, DataUtilities.calculateRowTotal(values1, 0, valid1), .000000001d);
     }
+    
+    @Test
+    public void testCalculateRowTotalValidSingletonOutOfBounds() {
+    	assertEquals("The sum of the valid singleton values row with valid out of bounds", 0.0, DataUtilities.calculateRowTotal(values1, 0, valid2), .000000001d);
+    }
+
+    @Test
+    public void testCalculateRowTotalValidRow() {
+        assertEquals("The sum of the table values row", 2.2, DataUtilities.calculateRowTotal(values2, 1, valid1), .000000001d);
+    }
+
+    @Test
+    public void testCalculateRowTotalNullRow() {
+        assertEquals("The sum of the table values row", 2.2, DataUtilities.calculateRowTotal(values2, 2, valid3), .000000001d);
+    }
+
 
     @After
     public void tearDown() throws Exception {
