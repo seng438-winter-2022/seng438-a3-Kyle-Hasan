@@ -48,11 +48,11 @@ public class CalculateColumnTotalTest {
                 one(values1).getValue(0,0);
                 will(returnValue(3.3));
                 one(values1).getValue(0,1);
-                will(returnValue(0));
+                will(returnValue(null));
                 one(values1).getValue(1,0);
-                will(returnValue(0));
+                will(returnValue(null));
                 one(values1).getValue(1,1);
-                will(returnValue(0));
+                will(returnValue(null));
             }
         });
 
@@ -93,50 +93,13 @@ public class CalculateColumnTotalTest {
         });
     }
 
-    @Test
-    public void testCalculateColumnTotalSingleton() {
-        assertEquals("The sum of the singleton values column", 3.3, DataUtilities.calculateColumnTotal(values1, 0), .000000001d);
-    }
+
     
     @Test
     public void testCalculateColumnTotalSingletonOutOfBounds() {
         assertEquals("The sum of the singleton values column out of bounds", 0, DataUtilities.calculateColumnTotal(values1, 1), .000000001d);
     }
 
-    @Test
-    public void testCalculateColumnTotalNonzeroPosition() {
-        assertEquals("The sum of the table values column", 3.3, DataUtilities.calculateColumnTotal(values2, 1), .000000001d);
-    }
-
-    @Test
-    public void testCalculateColumnTotalTableOutOfBounds() {
-        assertEquals("The sum of the table values column", 0, DataUtilities.calculateColumnTotal(values2, 2), .000000001d);
-    }
-    
-    @Test (expected = InvalidParameterException.class)
-    public void testCalculateColumnTotalInvalidParemeter() {
-        DataUtilities.calculateColumnTotal(null, 0);
-    }
-    
-    @Test
-    public void testCalculateColumnTotalValidSingleton() {
-    	assertEquals("The sum of the valid singleton values row", 3.3, DataUtilities.calculateColumnTotal(values1, 0, valid1), .000000001d);
-    }
-    
-    @Test
-    public void testCalculateColumnTotalValidSingletonOutOfBounds() {
-    	assertEquals("The sum of the valid singleton values row with valid out of bounds", 0.0, DataUtilities.calculateColumnTotal(values1, 0, valid2), .000000001d);
-    }
-
-    @Test
-    public void testCalculateColumnTotalValidRow() {
-        assertEquals("The sum of the table values row", 1.1, DataUtilities.calculateColumnTotal(values2, 1, valid1), .000000001d);
-    }
-
-    @Test
-    public void testCalculateColumnTotalNullRow() {
-        assertEquals("The sum of the table values row", 2.2, DataUtilities.calculateColumnTotal(values2, 2, valid3), .000000001d);
-    }
 
     @After
     public void tearDown() throws Exception {
