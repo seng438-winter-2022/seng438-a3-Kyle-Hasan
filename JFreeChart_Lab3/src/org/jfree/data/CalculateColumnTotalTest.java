@@ -48,11 +48,11 @@ public class CalculateColumnTotalTest {
                 one(values1).getValue(0,0);
                 will(returnValue(3.3));
                 one(values1).getValue(0,1);
-                will(returnValue(1.1));
+                will(returnValue(0));
                 one(values1).getValue(1,0);
-                will(returnValue(3.3));
+                will(returnValue(0));
                 one(values1).getValue(1,1);
-                will(returnValue(1.1));
+                will(returnValue(0));
             }
         });
 
