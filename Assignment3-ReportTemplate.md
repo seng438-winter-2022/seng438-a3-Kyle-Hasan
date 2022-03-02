@@ -22,14 +22,14 @@ The purpose of this lab is to do white box coverage unit testing using Eclipseâ€
 ## Data Flow Graph ##
 
 ## def-use sets: ##
-  def(1) = {data, column}, use(1) = {}
-  def(2) = {total}, use(2) = {}
-  def(3) = {rowCount}, use(3) = {data}
-  def(4) = {n, r}, use(4) = {data, r, rowCount, column}
-  def(5) = {total}, use(5) = {total, n}
-  def(6) = {}, use(6) = {}
-  def(7) = {r}, use(7) = {r}
-  def(8) = {}, use(8) = {total}
+  def(1) = {data, column}, use(1) = {}  
+  def(2) = {total}, use(2) = {}  
+  def(3) = {rowCount}, use(3) = {data}  
+  def(4) = {n, r}, use(4) = {data, r, rowCount, column}  
+  def(5) = {total}, use(5) = {total, n}  
+  def(6) = {}, use(6) = {}  
+  def(7) = {r}, use(7) = {r}  
+  def(8) = {}, use(8) = {total}  
 
 ## du-pairs: ##
   1. du(1, 3, data) = [1, 2, 3]
