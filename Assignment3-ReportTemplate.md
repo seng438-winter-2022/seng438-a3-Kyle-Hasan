@@ -20,10 +20,10 @@ The purpose of this lab is to do white box coverage unit testing using Eclipseâ€
 # 2 Manual data-flow coverage calculations for calculateColumnTotal (2 argument version) and intersect methods
 
 ## calculateColumnTotal ##
-## Data Flow Graph ##
+### Data Flow Graph ###
+![](images/dfg1.png)
 
-
-## def-use sets: ##
+### def-use sets: ###
   def(1) = {data, column}, use(1) = {}  
   def(2) = {total}, use(2) = {}  
   def(3) = {rowCount}, use(3) = {data}  
@@ -33,7 +33,7 @@ The purpose of this lab is to do white box coverage unit testing using Eclipseâ€
   def(7) = {r}, use(7) = {r}  
   def(8) = {}, use(8) = {total}  
 
-## du-pairs: ##
+### du-pairs: ###
   1. du(1, 3, data) = [1, 2, 3]
   2. du(1, 4, data) = [1, 2, 3, 4]
   3. du(1, 4, column) = [1, 2, 3, 4]
@@ -44,11 +44,16 @@ The purpose of this lab is to do white box coverage unit testing using Eclipseâ€
   8. du(4, 7, r) = {[4, 5, 7], [4, 6, 7]}
   9. du(4, 5, n) = [4, 5]
 
-## Pair-coverage ##
+### Pair-coverage ###
 All tests except for the Singleton and Table out of bound tests, and the InvalidParameter test cover all pairs. The OutOfBOund tests cover all pairs but 4, 6, and 9, while the InvalidParameter test does not cover any pairs.
 
-## Test Coverage ##
+### Test Coverage ###
 Since all pairs were covered, so were all the uses. This means that the calculateColumnTotal method has 100% data-flow coverage.
+
+
+## Range.intersect ##
+### Data Flow Graph ###
+![](images/dfg2.png)
 
 # 3 A detailed description of the testing strategy for the new unit test
 
