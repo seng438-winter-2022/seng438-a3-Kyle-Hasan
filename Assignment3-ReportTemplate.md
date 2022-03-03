@@ -17,9 +17,11 @@ for each group. Please see each lab document for details.)
 
 The purpose of this lab is to do white box coverage unit testing using Eclipse’s EclEmma on the same software as the previous lab. Testing coverage was given more importance as we tried to increase the line coverage, method coverage and branch coverage for the DataUtilities and Range classes. Eclipse EcclEmma was used to do the coverage whitebox testing. 
 
-# 2 Manual data-flow coverage calculations for calculateColumnTotal (2 argument version) and Y methods
+# 2 Manual data-flow coverage calculations for calculateColumnTotal (2 argument version) and intersect methods
 
+## calculateColumnTotal ##
 ## Data Flow Graph ##
+
 
 ## def-use sets: ##
   def(1) = {data, column}, use(1) = {}  
@@ -64,14 +66,13 @@ Range.constraint(): This method was tested with specific Ranges as well as speci
 # 5 A detailed report of the coverage achieved of each class and method (a screen shot from the code cover results in green and red colour would suffice)
 
 Range Line Coverage: 90.3%
-
-
+![Range line coverage](/images/rangeline.png)
 
 Range Branch Coverage: 91.7%
-
+![Range line coverage](/images/rangebranch.png)
 
 Range Method Coverage: 82.6%
-
+![Range line coverage](/images/rangemethod.png)
 
 
 # 6 Pros and Cons of coverage tools used and Metrics you report
