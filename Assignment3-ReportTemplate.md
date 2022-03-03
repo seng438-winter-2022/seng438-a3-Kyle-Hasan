@@ -5,7 +5,7 @@
 | Group \#:      |   2  |
 | -------------- | --- |
 | Student Names: |     |
-|         Kyle Hasan     |     |
+|         Kyle Hasan     |  30087880   |
 |         Andres Caicedo    |     |
 |         Evyn Rissling       |  30096936   |
 |         John Abo      |     |
@@ -138,4 +138,4 @@ With more practice we became more proficient with JUnit testing, the eclipse IDE
 
 # 10 Comments/feedback on the lab itself
 
-Still hate Eclipse…
+Instructions about demo unclear, was not aware that coverage results from previous assignment needed to be shown.
