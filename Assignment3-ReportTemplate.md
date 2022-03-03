@@ -55,16 +55,47 @@ Since all pairs were covered, so were all the uses. This means that the calculat
 ### Data Flow Graph ###
 ![](images/dfg2.png)
 
+### def-use sets: ###
+def(1) = {b0,b1}, use(1) = {}  
+def(2) = {} , use(2) = {b0,this.lower}  
+def(3) = {}, use(3) = {b1,this.lower}  
+def(4) = {], use(4) = {b0,b1,this.upper}  
+
+
+### du-pairs: ###
+
+1. du(1,2,b0) = [1,2]
+2. du (1,3,b1) = [1,2,3]
+3. du (1,4,b1) = [1,2,4]
+4. du (1,4,b1) = [1,2,4]
+
+
+### Pair-coverage ###
+b0LowerOrEqualsB1HigherThan() covers [1,2] and [1,2,3]  
+ b0LowerOrEqualsB1LowerThan() covers [1,2] and [1,2,4]  
+b0LowerOrEqualsB1LowerThanNegative() covers [1,2] and [1,2,4]  
+elseTrueFalseTest() covers [1,2] and [1,2,4]  
+ elseFalseTrueTest() covers [1,2] and [1,2,4]  
+ elseFalseTrueTest() covers [1,2] and [1,2,4]  
+
+
+### Test Coverage ###
+All du-pairs are covered by the test cases, so it has 100% du-pair coverage.
+
 # 3 A detailed description of the testing strategy for the new unit test
 
-Our test strategy consisted of checking the initial 
+Our test strategy consisted of checking the initial coverage of our previous tests. This gave us a means of determining which methods we would prioritise and create tests for; from there we divided the methods amongst ourselves. In the case of the Range class, we chose to test methods with the most lines that haven’t been tested yet to increase the line coverage. For the Data utilities class, the rest of the methods that have not been tested yet were tested. We then observed whether there were branches that needed to be covered for those methods, and used that information to determine partitions and create our tests. Testing on the untested methods also allowed us to increase method coverage.
 
 # 4 A high level description of five selected test cases you have designed using coverage information, and how they have increased code coverage
 
 Range.combine(): Combine method was tested using different ranges with differing signs and magnitudes. The method helped cover 7 lines for the line coverage, as well as 4 branches and of course a method coverage increase as well.  
+  
 Range.expand():  This test used multiple values to test the expansion of a range object, including a null test as well. This increased the method testing by 1 and the line coverage testing by 8 and the branch coverage was increased by 2 more branches.
+  
 Range(): This is testing the default constructor for the Range class. This test increases the line coverage by 8 lines as outlined in the detailed report. The branch coverage was increased by 2 and the method coverage was also impacted by 1 more method being tested. 
+  
 Range.equals(): Equals method was tested using some specific range object created in the setup. This helped us increase line coverage by 8 as well as increasing branch coverage by 6. The method coverage was also increased by 1. 
+  
 Range.constraint(): This method was tested with specific Ranges as well as specific values to make sure the constraint of every range was tested. This test increased line coverage by 8 lines and branch coverage by 5 .The method coverage was also increased by 1. 
 
 
@@ -99,11 +130,11 @@ Requirements-based testing does not guarantee that all possible cases have been 
 
 # 8 A discussion on how the team work/effort was divided and managed
 
-Each individual was given 3 methods to write unit tests for. The group later met to combine everything,make sure the test suite met requirements and write the report.
+Each individual was given 3 methods to write unit tests for. The group later met to combine everything, make sure the test suite met requirements and write the report. 
 
 # 9 Any difficulties encountered, challenges overcome, and lessons learned from performing the lab
 
-With more practice we became more proficient with JUnit testing, the eclipse IDE and coverage tools. 
+With more practice we became more proficient with JUnit testing, the eclipse IDE and coverage tools. We initially had issues with the mocks not contributing to coverage and one member had issues with Eclipse concerning the DataUtilities coverage. 
 
 # 10 Comments/feedback on the lab itself
 
