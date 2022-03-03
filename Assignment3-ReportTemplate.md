@@ -74,12 +74,19 @@ Range Line Coverage: 90.3%
 ![Range line coverage](/images/rangeline.png)
 
 Range Branch Coverage: 91.7%
-![Range line coverage](/images/rangebranch.png)
+![Range branch coverage](/images/rangebranch.png)
 
 Range Method Coverage: 82.6%
-![Range line coverage](/images/rangemethod.png)
+![Range method coverage](/images/rangemethod.png)
 
+DataUtilities Line Coverage: 98.8%
+![DataUtilities line coverage](/images/dataline.png)
 
+DataUtilities Line Coverage: 95.8%
+![DataUtilities branch coverage](/images/databranch.png)
+
+DataUtilities Line Coverage: 90.0%
+![DataUtilities method coverage](/images/datamethod.png)
 # 6 Pros and Cons of coverage tools used and Metrics you report
 
 The coverage tool we used was EclEmma which was very good at organising the coverage tests as shown above. This made it easier to figure out how many tests we needed to write to meet the requirements for this assignment. The only con we experienced was a synchronisation issue with the workspace by Eclipse where some libraries were not imported correctly and so we had to manually adjust this. 
